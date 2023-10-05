@@ -46,10 +46,10 @@ export const getArqueroByValidation = async (req,res) => {
 export const postArquero = async (req,res) => {
     
     try {
-        const {nombre,apellido,telefono,fecha_nac,correo,contra,usuario} = req.body
+        const {nombre,apellido,telefono,fecha_nac,correo,contra,usuario,horario} = req.body
         const [rows] = 
-            await pool.query('insert into arquero (nombre,apellido,telefono,fecha_nac,correo,contra,usuario) values (?,?,?,?,?,?,?)',
-            [nombre,apellido,telefono,fecha_nac,correo,contra,usuario])
+            await pool.query('insert into arquero (nombre,apellido,telefono,fecha_nac,correo,contra,usuario,horario) values (?,?,?,?,?,?,?,?)',
+            [nombre,apellido,telefono,fecha_nac,correo,contra,usuario,horario])
         
         res.sendStatus(204)
     } catch(error){

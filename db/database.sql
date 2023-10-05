@@ -2,13 +2,14 @@ create database futbol;
 
 use futbol;
 
-create table Arquero(
+create table arquero(
 	id int auto_increment primary key,
     nombre varchar(100),
     apellido varchar(100),
     telefono varchar(13),
     fecha_nac date,
     correo varchar(100) unique,
+    contra varchar(100),
     usuario varchar(100) unique
 );
 
