@@ -4,6 +4,7 @@ import { getArqueroById } from "../controllers/arquero.controller.js";
 import { deleteArquero } from "../controllers/arquero.controller.js";
 import { postArquero } from "../controllers/arquero.controller.js";
 import { getArqueroByValidation } from "../controllers/arquero.controller.js";
+import { putArquero } from "../controllers/arquero.controller.js";
 
 const router = Router()
 
@@ -14,6 +15,9 @@ router.get('/arquero/validation/:correo/:contra',getArqueroByValidation)
 
 //POST
 router.post('/arquero',postArquero)
+
+//PUT
+router.put('/arquero/:id',putArquero)
 
 //DELETE
 router.delete('/arquero/:id',deleteArquero)

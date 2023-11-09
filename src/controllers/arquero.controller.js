@@ -46,10 +46,29 @@ export const getArqueroByValidation = async (req,res) => {
 export const postArquero = async (req,res) => {
     
     try {
-        const {nombre,apellido,telefono,fecha_nac,correo,contra,usuario,horario} = req.body
+        const {nombre,apellido,telefono,fecha_nac,correo,contra,usuario,foto,horario} = req.body
         const [rows] = 
-            await pool.query('insert into arquero (nombre,apellido,telefono,fecha_nac,correo,contra,usuario,horario) values (?,?,?,?,?,?,?,?)',
-            [nombre,apellido,telefono,fecha_nac,correo,contra,usuario,horario])
+            await pool.query('insert into arquero (nombre,apellido,telefono,fecha_nac,correo,contra,usuario,foto,horario) values (?,?,?,?,?,?,?,?,?)',
+            [nombre,apellido,telefono,fecha_nac,correo,contra,usuario,foto,horario])
+        
+        res.sendStatus(204)
+    } catch(error){
+        return res.status(500).json({
+            message: 'Algo salió mal',
+            error: error
+        })
+    }    
+    
+}
+
+export const putArquero = async (req,res) => {
+    
+    try {
+        const id = req.params.id
+        const {nombre,apellido,telefono,fecha_nac,correo,contra,usuario,foto,horario} = req.body
+        const [rows] = 
+            await pool.query('update arquero set nombre=?, apellido=?,telefono=?, fecha_nac = ?,correo=?, contra=?, usuario=?, foto=?, horario=? where id=?',
+            [nombre,apellido,telefono,fecha_nac,correo,contra,usuario,foto,horario,id])
         
         res.sendStatus(204)
     } catch(error){

@@ -18,6 +18,9 @@ values
 ('pablo','escalante','996798123','2000-03-03','p@gmail.com','p123','canelita')
 ;
 
+update arquero set nombre=?, apellido=?,telefono=?, fecha_nac = ?,
+correo=?, contra=?, usuario=?, foto=?, horario=? where id=?
+
 /*create table sesion(
 	id int auto_increment primary key,
     id_arquero int,
