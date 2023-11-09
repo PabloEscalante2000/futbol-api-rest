@@ -19,7 +19,20 @@ values
 ;
 
 update arquero set nombre=?, apellido=?,telefono=?, fecha_nac = ?,
-correo=?, contra=?, usuario=?, foto=?, horario=? where id=?
+correo=?, contra=?, usuario=?, foto=?, horario=? where id=?;
+
+create table alumno (
+	id int auto_increment primary key,
+    nombre varchar(255) not null,
+    apellido varchar(255) not null,
+    edad int not null,
+    sexo char(1) not null,
+    puntos int default 0,
+    id_profesor int,
+    foreign key (id_profesor) references arquero(id)
+)
+
+insert into alumno (nombre,apellido,edad,sexo,id_profesor) values ('paco','yunque',10,'M',1)
 
 /*create table sesion(
 	id int auto_increment primary key,
